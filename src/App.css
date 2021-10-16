@@ -1,38 +1,68 @@
-.App {
-  text-align: center;
+.container {
+    height: 100vh;
+    background-color: #263137;
+
+    display: grid;
+    grid-template-areas: "area-title"
+                         "area-refresh"
+                         "area-card";
+    place-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container__title {
+
+    grid-area: area-title;
+
+    color: whitesmoke;
+    font-size: 2rem;
+    border-bottom: 2px solid royalblue;
+    padding-bottom: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container__refresh {
+
+    grid-area: area-refresh;
+
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    border: none;
+    background-color: #36474F;
+    color: #c5d4db;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.1s linear;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container__refresh:hover {
+    box-shadow: 4px 4px 1px #4F6773;
 }
 
-.App-link {
-  color: #61dafb;
+.container__refresh:focus {
+    outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container__cards {
+
+    grid-area: area-card;
+
+    height: 280px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    gap: 2rem;
+}
+
+@media only screen and (max-width: 1300px) {
+    
+    .container__cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    
+    .container__cards {
+        grid-template-columns: 1fr;
+        place-items: center;
+    }
 }
